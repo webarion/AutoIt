@@ -1,11 +1,11 @@
 ; Authors: @AZJIO and Webarion
 #NoTrayIcon
 
-$Gui = GUICreate(__Tr_FTBS('Конвертер файла в бинарную строку', 'File to binary string converter'), 330, 94, -1, -1, -1, 0x00000010)
+$Gui = GUICreate(__Tr_FTBS('РљРѕРЅРІРµСЂС‚РµСЂ С„Р°Р№Р»Р° РІ Р±РёРЅР°СЂРЅСѓСЋ СЃС‚СЂРѕРєСѓ', 'File to binary string converter'), 330, 94, -1, -1, -1, 0x00000010)
 
 $Input1 = GUICtrlCreateLabel('', 0, 0, 300, 94)
 GUICtrlSetState(-1, 136)
-GUICtrlCreateLabel(__Tr_FTBS('Перетащите сюда файл для конвертации в бинарную строку', 'Throw a file here to convert to a binary string'), 10, 2, 320, 17)
+GUICtrlCreateLabel(__Tr_FTBS('РџРµСЂРµС‚Р°С‰РёС‚Рµ СЃСЋРґР° С„Р°Р№Р» РґР»СЏ РєРѕРЅРІРµСЂС‚Р°С†РёРё РІ Р±РёРЅР°СЂРЅСѓСЋ СЃС‚СЂРѕРєСѓ', 'Throw a file here to convert to a binary string'), 10, 2, 320, 17)
 $StatusBar = GUICtrlCreateLabel(@CRLF & @CRLF, 10, 23, 280, 57)
 
 GUISetState()
@@ -15,7 +15,7 @@ While 1
 	Select
 		Case $msg = -13
 			$filename = StringRegExp(@GUI_DragFile, '(^.*)\\(.*)\.(.*)$', 3)
-			GUICtrlSetData($StatusBar, __Tr_FTBS('Файл', 'File') & ' ' & $filename[1] & '.' & $filename[2] & ' ' & __Tr_FTBS('принят', 'is accepted') & @CRLF & __Tr_FTBS('идёт чтение', 'Read') & '...')
+			GUICtrlSetData($StatusBar, __Tr_FTBS('Р¤Р°Р№Р»', 'File') & ' ' & $filename[1] & '.' & $filename[2] & ' ' & __Tr_FTBS('РїСЂРёРЅСЏС‚', 'is accepted') & @CRLF & __Tr_FTBS('РёРґС‘С‚ С‡С‚РµРЅРёРµ', 'Read') & '...')
 			$ScrBin = '$sData  = ''0x''' & @CRLF
 			$file = FileOpen(@GUI_DragFile, 16)
 			While 1
@@ -25,7 +25,7 @@ While 1
 				Sleep(1)
 			WEnd
 			FileClose($file)
-			GUICtrlSetData($StatusBar, __Tr_FTBS('Файл', 'File') & ' ' & $filename[1] & '.' & $filename[2] & ' ' & __Tr_FTBS('принят', 'is accepted') & @CRLF & __Tr_FTBS('идёт запись', 'Write') & '...')
+			GUICtrlSetData($StatusBar, __Tr_FTBS('Р¤Р°Р№Р»', 'File') & ' ' & $filename[1] & '.' & $filename[2] & ' ' & __Tr_FTBS('РїСЂРёРЅСЏС‚', 'is accepted') & @CRLF & __Tr_FTBS('РёРґС‘С‚ Р·Р°РїРёСЃСЊ', 'Write') & '...')
 
 			$Output = $filename[0] & '\Bin'
 			$i = 1
@@ -41,7 +41,7 @@ While 1
 					'FileWrite($file, $sData)' & @CRLF & _
 					'FileClose($file)')
 			FileClose($file)
-			GUICtrlSetData($StatusBar, __Tr_FTBS('Файл', 'File') & ' ' & $filename[1] & '.' & $filename[2] & ' ' & __Tr_FTBS('принят', 'is accepted') & @CRLF & __Tr_FTBS('Скрипт-файл с бинарными данными', 'Script file with binary data') & ' ' & __Tr_FTBS('создан', 'is created') & ': ' & 'Bin' & $i & '_' & $filename[1] & '.au3')
+			GUICtrlSetData($StatusBar, __Tr_FTBS('Р¤Р°Р№Р»', 'File') & ' ' & $filename[1] & '.' & $filename[2] & ' ' & __Tr_FTBS('РїСЂРёРЅСЏС‚', 'is accepted') & @CRLF & __Tr_FTBS('РЎРєСЂРёРїС‚-С„Р°Р№Р» СЃ Р±РёРЅР°СЂРЅС‹РјРё РґР°РЅРЅС‹РјРё', 'Script file with binary data') & ' ' & __Tr_FTBS('СЃРѕР·РґР°РЅ', 'is created') & ': ' & 'Bin' & $i & '_' & $filename[1] & '.au3')
 		Case $msg = -3
 			Exit
 	EndSelect
